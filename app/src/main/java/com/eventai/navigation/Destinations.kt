@@ -1,6 +1,7 @@
 package com.eventai.navigation
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Create
 import androidx.compose.material.icons.rounded.List
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.ui.graphics.vector.ImageVector
