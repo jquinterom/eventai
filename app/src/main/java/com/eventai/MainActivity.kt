@@ -36,7 +36,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
-    val scope = rememberCoroutineScope()
     val scaffoldState = rememberScaffoldState()
 
     val bottomNavigationItems = listOf(
@@ -58,6 +57,9 @@ fun MainScreen() {
                 Destinations.FavoritesEventsScreen.route -> {
                     Destinations.FavoritesEventsScreen.title
                 }
+                Destinations.CreateEventScreen.route -> {
+                    Destinations.CreateEventScreen.title
+                }
                 else -> {
                     appName
                 }
@@ -69,8 +71,13 @@ fun MainScreen() {
 
     Scaffold(
         scaffoldState = scaffoldState,
-        bottomBar = { BottomNavigationBar(navController = navController, items = bottomNavigationItems) },
-        topBar = { TopNavigationBar(scope = scope, scaffoldState = scaffoldState, title = title) },
+        bottomBar = {
+            BottomNavigationBar(
+                navController = navController,
+                items = bottomNavigationItems
+            )
+        },
+        topBar = { TopNavigationBar(title = title, navController = navController) },
         // drawerContent = { Drawer(scope = scope, scaffoldState = scaffoldState, navController, items = drawerNavigationItems) }
     ) {
         NavigationHost(navController)

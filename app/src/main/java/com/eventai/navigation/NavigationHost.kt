@@ -5,10 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.eventai.navigation.Destinations.FavoritesEventsScreen
-import com.eventai.navigation.Destinations.EventsListScreen
-import com.eventai.ui.screens.EventsListScreen
-import com.eventai.ui.screens.FavoritesEventsScreen
+import com.eventai.navigation.Destinations.*
+import com.eventai.ui.screens.*
 
 @Composable
 fun NavigationHost(
@@ -23,6 +21,12 @@ fun NavigationHost(
             FavoritesEventsScreen.route,
         ) {
             FavoritesEventsScreen()
+        }
+
+        composable(
+            CreateEventScreen.route,
+        ) {
+            CreateEventScreen()
         }
     }
 }

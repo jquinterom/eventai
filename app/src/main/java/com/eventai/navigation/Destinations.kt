@@ -13,4 +13,5 @@ sealed class Destinations(
 ) {
     object EventsListScreen : Destinations("listEvents", "Events", Icons.Rounded.List)
     object FavoritesEventsScreen: Destinations("favoritesEvents", "Favorites", Icons.Rounded.Star)
+    object CreateEventScreen: Destinations("createEvent", "Create Event", Icons.Rounded.Create)
 }

@@ -2,21 +2,32 @@ package com.eventai.navigation
 
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.rounded.Create
+import androidx.compose.material.icons.rounded.Menu
 import androidx.compose.runtime.Composable
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
+import androidx.navigation.NavController
+import com.eventai.navigation.Destinations.CreateEventScreen
 
 @Composable
 fun TopNavigationBar(
-    scope: CoroutineScope,
-    scaffoldState: ScaffoldState,
     title: String,
+    navController: NavController
 ) {
     TopAppBar(
         title = { Text(title) },
         navigationIcon = {
-            Icon(imageVector = Icons.Filled.Menu, contentDescription = null)
+            Icon(imageVector = Icons.Rounded.Menu, contentDescription = null)
+        },
+        actions = {
+            IconButton(onClick = {
+                navController.navigate(CreateEventScreen.route){
+                }
+            }) {
+                Icon(
+                    imageVector = Icons.Rounded.Create,
+                    contentDescription = null
+                )
+            }
         }
     )
 }
