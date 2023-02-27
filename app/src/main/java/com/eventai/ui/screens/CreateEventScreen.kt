@@ -49,11 +49,11 @@ fun CreateEventScreen() {
 
         ConstraintLayout(
             modifier = Modifier
-            .constrainAs(boxTextFields) {
-                top.linkTo(btnAddPicture.bottom)
-            }
-            .padding(8.dp)
-            .fillMaxSize(),
+                .constrainAs(boxTextFields) {
+                    top.linkTo(btnAddPicture.bottom)
+                }
+                .padding(8.dp)
+                .fillMaxSize(),
         ) {
             val (txtNameEvent, txtStartDate, btnAddEndDate, txtVirtualLive, txtWho, txtDetails, btnRepeatEvent) =
                 createRefs()
@@ -67,7 +67,10 @@ fun CreateEventScreen() {
                     }
                     .fillMaxWidth()
                     .padding(bottom = 8.dp),
-                value = "Nombre del evento", onValueChange = {})
+                value = "", onValueChange = {}, placeholder = {
+                    Text(text = "Nombre del evento")
+                }
+            )
 
             TextField(
                 modifier = Modifier
@@ -76,8 +79,11 @@ fun CreateEventScreen() {
                         end.linkTo(txtNameEvent.end)
                         top.linkTo(txtNameEvent.bottom)
                     }
-                    .fillMaxWidth().padding(bottom = 8.dp),
-                value = "Fecha y hora de inicio", onValueChange = {})
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp),
+                value = "", onValueChange = {}, placeholder = {
+                    Text(text = "Fecha y hora de inicio")
+                })
 
             IconButton(
                 modifier = Modifier.constrainAs(btnAddEndDate) {
@@ -90,7 +96,10 @@ fun CreateEventScreen() {
                         painter = painterResource(id = R.drawable.ic_add_circle),
                         contentDescription = null
                     )
-                    Text(text = "Agregar fecha y hora de finalización")
+                    Text(
+                        text = "Agregar fecha y hora de finalización"
+                    )
+
                 }
             }
 
@@ -103,7 +112,10 @@ fun CreateEventScreen() {
                     }
                     .fillMaxWidth()
                     .padding(bottom = 8.dp),
-                value = "¿Es presencial o virtual?", onValueChange = {})
+                value = "", onValueChange = {},
+                placeholder = {
+                    Text(text = "¿Es presencial o virtual?")
+                })
 
             TextField(
                 modifier = Modifier
@@ -114,7 +126,9 @@ fun CreateEventScreen() {
                     }
                     .fillMaxWidth()
                     .padding(bottom = 8.dp),
-                value = "¿Quién puede verlo?", onValueChange = {})
+                value = "", onValueChange = {}, placeholder = {
+                    Text(text = "¿Quién puede verlo?")
+                })
 
             TextField(
                 modifier = Modifier
@@ -125,7 +139,10 @@ fun CreateEventScreen() {
                     }
                     .fillMaxWidth()
                     .padding(bottom = 14.dp),
-                value = "¿Cuáles son los detalles?", onValueChange = {})
+                value = "", onValueChange = {},
+                placeholder = {
+                    Text(text = "¿Cuáles son los detalles?")
+                })
 
             Row(modifier = Modifier.constrainAs(btnRepeatEvent) {
                 start.linkTo(txtNameEvent.start)
