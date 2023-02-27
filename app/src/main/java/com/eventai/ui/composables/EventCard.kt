@@ -161,7 +161,7 @@ fun EventCard() {
 @Composable
 fun EventCardPreview() {
     EventaiTheme {
-        Surface {
+    Surface {
             EventCard()
         }
     }
