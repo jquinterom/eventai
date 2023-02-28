@@ -8,7 +8,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
@@ -28,14 +27,10 @@ import com.eventai.ui.theme.EventaiTheme
 fun EventCard() {
     Card(
         modifier = Modifier
-            .shadow(dimensionResource(id = R.dimen.shadow_card))
             .padding(bottom = dimensionResource(id = R.dimen.padding_bottom_content_card)),
         shape = RoundedCornerShape(dimensionResource(id = R.dimen.rounded_corner_shape))
     ) {
-        ConstraintLayout(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
+        ConstraintLayout(modifier = Modifier.fillMaxWidth()) {
             val (image, textBody, buttons) = createRefs()
 
             // Image
@@ -74,7 +69,6 @@ fun EventCard() {
                         end.linkTo(parent.end)
                     }) {
                 Text(
-
                     style = TextStyle(
                         color = Color.Gray,
                         fontSize = 14.sp,
@@ -161,7 +155,7 @@ fun EventCard() {
 @Composable
 fun EventCardPreview() {
     EventaiTheme {
-    Surface {
+        Surface {
             EventCard()
         }
     }
