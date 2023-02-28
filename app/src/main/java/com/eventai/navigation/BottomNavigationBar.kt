@@ -5,6 +5,7 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -13,8 +14,13 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 @Composable
 fun BottomNavigationBar(
     navController: NavController,
-    items: List<Destinations>
+    items: List<Destinations>,
+    bottomAndTopBarState : MutableState<Boolean>
 ) {
+
+    if(!bottomAndTopBarState.value){
+        return
+    }
 
     val currentRoute = currentRoute(navController = navController)
     BottomNavigation() {

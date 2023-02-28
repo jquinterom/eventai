@@ -66,7 +66,7 @@ fun CreateEventScreen() {
             val (txtNameEvent, txtStartDate, btnAddEndDate, txtVirtualLive, txtWho, txtDetails, btnRepeatEvent, btnPrivate) =
                 createRefs()
 
-            TextField(
+            OutlinedTextField(
                 modifier = Modifier
                     .constrainAs(txtNameEvent) {
                         start.linkTo(parent.start)
@@ -86,7 +86,7 @@ fun CreateEventScreen() {
                 }
             )
 
-            TextField(
+            OutlinedTextField(
                 modifier = Modifier
                     .constrainAs(txtStartDate) {
                         start.linkTo(txtNameEvent.start)
@@ -123,7 +123,7 @@ fun CreateEventScreen() {
                 }
             }
 
-            TextField(
+            OutlinedTextField(
                 modifier = Modifier
                     .constrainAs(txtVirtualLive) {
                         start.linkTo(txtNameEvent.start)
@@ -143,7 +143,7 @@ fun CreateEventScreen() {
                     Text(text = "¿Es presencial o virtual?")
                 })
 
-            TextField(
+            OutlinedTextField(
                 modifier = Modifier
                     .constrainAs(txtWho) {
                         start.linkTo(txtNameEvent.start)
@@ -162,7 +162,7 @@ fun CreateEventScreen() {
                     Text(text = "¿Quién puede verlo?")
                 })
 
-            TextField(
+            OutlinedTextField(
                 modifier = Modifier
                     .constrainAs(txtDetails) {
                         start.linkTo(txtNameEvent.start)

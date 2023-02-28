@@ -5,14 +5,20 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Create
 import androidx.compose.material.icons.rounded.Menu
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.navigation.NavController
 import com.eventai.navigation.Destinations.CreateEventScreen
 
 @Composable
 fun TopNavigationBar(
     title: String,
-    navController: NavController
+    navController: NavController,
+    bottomAndTopBarState: MutableState<Boolean>
 ) {
+    if (!bottomAndTopBarState.value) {
+        return
+    }
+
     TopAppBar(
         title = { Text(title) },
         navigationIcon = {
@@ -20,7 +26,7 @@ fun TopNavigationBar(
         },
         actions = {
             IconButton(onClick = {
-                navController.navigate(CreateEventScreen.route){
+                navController.navigate(CreateEventScreen.route) {
                 }
             }) {
                 Icon(
