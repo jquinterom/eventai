@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.eventai.navigation.Destinations
 import com.eventai.ui.theme.EventaiTheme
 
@@ -131,7 +132,7 @@ fun LogInScreen(
 fun LogInScreenPreview() {
     EventaiTheme {
         Surface {
-            // LogInScreen()
+            LogInScreen(rememberNavController())
         }
     }
 }
