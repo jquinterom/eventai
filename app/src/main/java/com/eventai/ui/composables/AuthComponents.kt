@@ -108,7 +108,16 @@ fun AuthComponents(
                 Button(
                     modifier = buttonModifier,
                     onClick = {
-                        navController.navigate(Destinations.EventsListScreen.route)
+                        if (isLogIn) {
+                            navController.navigate(Destinations.EventsListScreen.route)
+                        } else {
+                            navController.navigate(Destinations.EventsListScreen.route) {
+                                popUpTo(navController.graph.findStartDestination().id) {
+                                    saveState = true
+                                }
+                                launchSingleTop = true
+                            }
+                        }
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary),
                     shape = buttonShape,
